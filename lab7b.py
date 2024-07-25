@@ -35,6 +35,33 @@ def sum_times(t1, t2):
 
     return sum
 
+def change_time(time, seconds):
+    """Modify the time object by adding the given number of seconds."""
+    time.second += seconds
+
+    # Handle seconds overflow
+    while time.second >= 60:
+        time.second -= 60
+        time.minute += 1
+    
+    # Handle seconds underflow
+    while time.second < 0:
+        time.second += 60
+        time.minute -= 1
+
+    # Handle minutes overflow
+    while time.minute >= 60:
+        time.minute -= 60
+        time.hour += 1
+    
+    # Handle minutes underflow
+    while time.minute < 0:
+        time.minute += 60
+        time.hour -= 1
+
+    return None
+
+
 
 def valid_time(t):
     """check for the validity of the time object attributes:

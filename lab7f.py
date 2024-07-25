@@ -13,6 +13,18 @@ class Time:
         self.minute = minute
         self.second = second
 
+    def __str__(self):
+        """Return a string representation for the object self"""
+        return f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
+
+    def __repr__(self):
+        """Return a string representation for the object self with '.' instead of ':'"""
+        return f'{self.hour:02d}.{self.minute:02d}.{self.second:02d}'
+
+    def __add__(self, t2):
+        """Return the result by using sum_times() method"""
+        return self.sum_times(t2)
+
     def format_time(self):
         """Return time object as a formatted string"""
         return f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
@@ -50,3 +62,4 @@ def sec_to_time(seconds):
     minutes, time.second = divmod(seconds, 60)
     time.hour, time.minute = divmod(minutes, 60)
     return time
+
